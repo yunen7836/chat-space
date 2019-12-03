@@ -21,7 +21,8 @@
 
 ### Association
 - has_many :massages
-- has_many :groups, throu: groups_users
+- has_many :groups, through: groups_users
+- has_many :groups_users
 
 ## groupsテーブル
 
@@ -31,21 +32,22 @@
 
 ### Association
 - has_many :massages
-- has_many :users, throu: groups_users
+- has_many :users, through: groups_users
+- has_many :groups_users
 
 ## messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|text|string|null: false|
+|text|string||
 |image|string||
 |user_id|integer|index: true, null: false, foreign_key: true|
 |group_id|integer|index: true, null: false, foreign_key: true|
 
 
 ### Association
-- belongs_to :groups
-- belongs_to :users
+- belongs_to :group
+- belongs_to :user
 
 
 ## README
