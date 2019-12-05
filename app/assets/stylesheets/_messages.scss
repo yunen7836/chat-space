@@ -1,0 +1,178 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+.side-bar {
+  height: 100%;
+  width: 300px;
+  background-color: #253141;
+  font-weight: bold;
+  &__user-name {
+    height: 100px;
+    width: 100%;
+    background-color: #253141;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__second {
+      height: 20px;
+      width: 260px;
+      background-color: #253141;
+      display: flex;
+      justify-content: space-between;
+      line-height: 20px;
+      font-size: 16px;
+      &__left {
+        color: #ffffff;
+      }
+      &__right {
+      }
+    }
+  }
+  &__group-list {
+    height: calc(100% - 100px);
+    width: 100%;
+    background-color: #2f3e51;
+    &--view {
+      height: 100px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      &--box {
+        height: 60px;
+        width: 260px;
+        &__group-name {
+          font-size: 15px;
+          margin-bottom: 5px;
+        }
+        &__new-message {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+}
+
+.chat-main {
+  height: 100%;
+  width: calc(100% - 300px);
+  background-color: #ffffff;
+  &__group-info {
+    height: 100px;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    &__left-box {
+      margin-top: 35px;
+      &__top {
+        font-size: 20px;
+        color: #333333;
+        margin-bottom: 15px;
+      }
+      &__bottom {
+        font-size: 12px;
+        color: #999999;
+      }
+    }
+    &__right-box {
+      height: 40px;
+      margin-top: 28px;
+      padding: 0 20px;
+      line-height: 40px;
+      border: 1px solid;
+      color: #38aef0;
+    }
+  }
+  &__massage-list {
+    height: calc(100% - 190px);
+    width: 100%;
+    background-color: #fafafa;
+    padding: 35px 40px;
+    &__box {
+      padding-bottom: 46px;
+      &__top {
+        display: flex;
+        margin-bottom: 12px;
+        &__left {
+          font-size: 16px;
+          color: #333333;
+        }
+        &__right {
+          margin-left: 10px;
+          font-size: 12px;
+          color: #999999;
+        }
+      }
+      &__bottom {
+        font-size: 14px;
+        color: #434A54;
+      }
+    }
+  }
+  &__massage-form {
+    height: 90px;
+    width: 100%;
+    background-color: #d2d2d2;
+    padding: 0 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__box {
+      height: 50px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      &__left {
+        width: 100%;
+        line-height: 50px;
+        background-color: #ffffff;
+        position: relative;
+        &__text {
+          padding-left: 10px;
+          padding-right: 40px;
+          height: 50px;
+          width: 100%;
+          border: none;
+        }
+        &__pictur {
+          position: absolute;
+          right: 10px;
+          &__delete {
+            display: none;
+          }
+          }
+        }
+      
+      &__right button{
+        height: 100%;
+        padding: 0 30px;
+        font-size: inherit;
+        margin-left: 15px;
+        line-height: 50px;
+        background-color: #38aef0;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+.icon {
+  color: #ffffff;
+  text-decoration: none;
+  text-align: right;
+  margin-left: 5px;
+}
