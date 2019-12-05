@@ -4,7 +4,7 @@
       .side-bar__user-name__second__left
         = current_user.name
       .side-bar__user-name__second__right
-        = link_to "#" do
+        = link_to new_group_path do
           %i.fa.fa-edit.icon
         = link_to edit_user_path(current_user) do
           %i.fa.fa-cog.icon
