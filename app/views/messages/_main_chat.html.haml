@@ -1,0 +1,44 @@
+.chat-main
+  .chat-main__group-info
+    .chat-main__group-info__left-box
+      .chat-main__group-info__left-box__top
+        test
+      .chat-main__group-info__left-box__bottom
+        Member:masa
+    .chat-main__group-info__right-box
+      = link_to "#" do
+        Edit
+  .chat-main__massage-list
+    .chat-main__massage-list__box
+      .chat-main__massage-list__box__top
+        .chat-main__massage-list__box__top__left
+          masa
+        .chat-main__massage-list__box__top__right
+          2019/11/20(wed) 17:43:01
+      .chat-main__massage-list__box__bottom
+        おはよう！
+    .chat-main__massage-list__box
+      .chat-main__massage-list__box__top
+        .chat-main__massage-list__box__top__left
+          masa
+        .chat-main__massage-list__box__top__right
+          2019/11/20(wed) 17:43:01
+      .chat-main__massage-list__box__bottom
+        おはよう！
+    .chat-main__massage-list__box
+      .chat-main__massage-list__box__top
+        .chat-main__massage-list__box__top__left
+          masa
+        .chat-main__massage-list__box__top__right
+          2019/11/20(wed) 17:43:01
+      .chat-main__massage-list__box__bottom
+        おはよう！
+  .chat-main__massage-form
+    %form.chat-main__massage-form__box
+      .chat-main__massage-form__box__left
+        %input{type: "text", placeholder: "type a message",class:"chat-main__massage-form__box__left__text"}
+        %label.chat-main__massage-form__box__left__pictur
+          %i.fa.fa-image
+          %input{type: "file", class: "chat-main__massage-form__box__left__pictur__delete"}
+      .chat-main__massage-form__box__right
+        %button{type: "submit"} Send
