@@ -1,0 +1,11 @@
+.chat-main__massage-list__box
+  .chat-main__massage-list__box__top
+    .chat-main__massage-list__box__top__left
+      = message.user.name
+    .chat-main__massage-list__box__top__right
+      = message.created_at.strftime("%Y/%m/%d %H:%M")
+  .chat-main__massage-list__box__bottom
+    - if message.content.present?
+      %p.chat-main__massage-list__box__bottom__content
+        = message.content
+    = image_tag message.image.url, class: 'chat-main__massage-list__box__bottom__image' if message.image.present?
