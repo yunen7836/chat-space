@@ -1,0 +1,23 @@
+.chat-main
+  .chat-main__group-info
+    .chat-main__group-info__left-box
+      .chat-main__group-info__left-box__top
+        = @group.name
+      .chat-main__group-info__left-box__bottom
+        Member:
+        - @group.users.each do |menber|
+          = menber.name
+    .chat-main__group-info__right-box
+      = link_to edit_group_path(@group) do
+        Edit
+  .chat-main__massage-list
+    = render @messages
+  .chat-main__massage-form
+    %form.chat-main__massage-form__box
+      = form_for [@group,@message] do |f|
+        .chat-main__massage-form__box__left
+          = f.text_field :content, class: 'chat-main__massage-form__box__left__text', placeholder: 'type a message'
+          = f.label :image, class: 'label.chat-main__massage-form__box__left__pictur' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'chat-main__massage-form__box__left__pictur__delete'
+        = f.submit 'Send', class: 'chat-main__massage-form__box__right'
