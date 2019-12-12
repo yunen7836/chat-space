@@ -4,6 +4,10 @@
 
 a {
   text-decoration: none;
+  }
+  
+.fas.fa-image {
+  color: black;
 }
 
 .wrapper {
@@ -49,10 +53,10 @@ a {
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #ffffff;
       &--box {
         height: 60px;
         width: 260px;
+        color: #ffffff;
         &__group-name {
           font-size: 15px;
           margin-bottom: 5px;
@@ -153,11 +157,12 @@ a {
           right: 10px;
           &__delete {
             display: none;
-          }
+            
           }
         }
+      }
       
-      &__right button{
+      &__right {
         height: 100%;
         padding: 0 30px;
         font-size: inherit;
