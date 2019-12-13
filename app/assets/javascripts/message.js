@@ -16,7 +16,7 @@ $(function(){
       <p class="chat-main__massage-list__box__bottom__content">
       ${message.text}
       </p>
-      <img class="chat-main__massage-list__box__bottom__image" src="/uploads/message/image/10/${message.image}" >
+      <img class="chat-main__massage-list__box__bottom__image" src="${message.image}" >
       </div>
       </div>`
     } else {
