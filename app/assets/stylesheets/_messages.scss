@@ -106,6 +106,7 @@ a {
     width: 100%;
     background-color: #fafafa;
     padding: 35px 40px;
+    overflow: scroll;
     &__box {
       padding-bottom: 46px;
       &__top {
@@ -141,14 +142,11 @@ a {
       display: flex;
       justify-content: space-between;
       &__left {
-        width: 100%;
         line-height: 50px;
         background-color: #ffffff;
         position: relative;
         &__text {
           padding-left: 10px;
-          padding-right: 40px;
-          height: 50px;
           width: 100%;
           border: none;
         }
