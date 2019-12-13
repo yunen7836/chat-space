@@ -45,9 +45,9 @@ $(function(){
     var formData = new FormData(this);
     var url = $(this).attr('action')
     $.ajax({
-      url: url,  //同期通信でいう『パス』
-      type: 'POST',  //同期通信でいう『HTTPメソッド』
-      data: formData,  
+      url: url,
+      type: 'POST',
+      data: formData,
       dataType: 'json',
       processData: false,
       contentType: false
@@ -56,7 +56,7 @@ $(function(){
       var html = buildHTML(data);
       $('.chat-main__massage-list').append(html);
       $('.chat-main__massage-list').animate({ scrollTop: $('.chat-main__massage-list')[0].scrollHeight});
-      $('.chat-main__massage-form__box__left__text').val('');
+      $('.chat-main__massage-form__box')[0].reset();
       $('.chat-main__massage-form__box__right').prop('disabled', false);
     })
     .fail(function() {
