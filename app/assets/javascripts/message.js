@@ -64,24 +64,29 @@ $(function(){
   })
 
   var reloadMessages = function() {
-    var last_message_id = $('.chat-main__massage-list__box:last').data("message_id");
-    $.ajax({
-      url: 'api/messages',
-      type: 'get',
-      dataType: 'json',
-      data: {id: last_message_id}
-    })
-    .done(function(messages) {
-      var insertHTML = '';
-      $.each(messages, function(i, message) {
-        insertHTML += buildHTML(message)
+    // if 今いるページのURLを取得。match　自動更新を行いたいページの正規表現を書く
+    var current_url = location.href;
+    var urlRE = /messages$/;
+    if (current_url.match(urlRE)) {
+      var last_message_id = $('.chat-main__massage-list__box:last').data("message_id");
+      $.ajax({
+        url: 'api/messages',
+        type: 'get',
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
+      .done(function(messages) {
+        var insertHTML = '';
+        $.each(messages, function(i, message) {
+          insertHTML += buildHTML(message)
+        });
+        $('.chat-main__massage-list').append(insertHTML);
+        $('.chat-main__massage-list').animate({ scrollTop: $('.chat-main__massage-list')[0].scrollHeight});
+      })
+      .fail(function() {
+        alert('error');
       });
-      $('.messages').append(insertHTML);
-      $('.chat-main__massage-list').animate({ scrollTop: $('.chat-main__massage-list')[0].scrollHeight});
-    })
-    .fail(function() {
-      alert('error');
-    });
+    };
   };
 
   setInterval(reloadMessages, 7000);
