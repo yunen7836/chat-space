@@ -1,9 +1,8 @@
 $(function(){
-
+  
   function buildHTML(message){
-    // 「もしメッセージに画像が含まれていたら」という条件式
     if (message.image) {
-      var html = `<div class="chat-main__massage-list__box">
+      var html = `<div class="chat-main__massage-list__box" data-message_id= "${message.id}" >
       <div class="chat-main__massage-list__box__top">
       <div class="chat-main__massage-list__box__top__left">
       ${message.name}
@@ -20,7 +19,7 @@ $(function(){
       </div>
       </div>`
     } else {
-      var html = `<div class="chat-main__massage-list__box">
+      var html = `<div class="chat-main__massage-list__box" data-message_id= "${message.id}" >
       <div class="chat-main__massage-list__box__top">
       <div class="chat-main__massage-list__box__top__left">
       ${message.name}
@@ -63,5 +62,33 @@ $(function(){
       alert("メッセージ送信に失敗しました");
   });
   })
+
+  var reloadMessages = function() {
+    // if 今いるページのURLを取得。match　自動更新を行いたいページの正規表現を書く
+    var current_url = location.href;
+    var urlRE = /messages$/;
+    if (current_url.match(urlRE)) {
+      var last_message_id = $('.chat-main__massage-list__box:last').data("message_id");
+      $.ajax({
+        url: 'api/messages',
+        type: 'get',
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
+      .done(function(messages) {
+        var insertHTML = '';
+        $.each(messages, function(i, message) {
+          insertHTML += buildHTML(message)
+        });
+        $('.chat-main__massage-list').append(insertHTML);
+        $('.chat-main__massage-list').animate({ scrollTop: $('.chat-main__massage-list')[0].scrollHeight});
+      })
+      .fail(function() {
+        alert('error');
+      });
+    };
+  };
+
+  setInterval(reloadMessages, 7000);
 });
 
